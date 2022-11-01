@@ -1,3 +1,16 @@
 .footerBarra{
     background: linear-gradient(90deg, #eb722c  8%, #c107b1e3  89%);
 }
+
+.redes{
+    font-size: 50px !important;
+    color: white;
+}
+
+.box1{
+    height: 60px;
+}
+
+.textos{
+    color: white;
+}

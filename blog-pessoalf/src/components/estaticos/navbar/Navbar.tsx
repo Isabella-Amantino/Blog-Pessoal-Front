@@ -7,51 +7,54 @@ import ExitToAppRoundedIcon from '@material-ui/icons/ExitToAppRounded';
 import ListAltRoundedIcon from '@material-ui/icons/ListAltRounded';
 import WebRoundedIcon from '@material-ui/icons/WebRounded';
 import "./Navbar.css"
+import { Link } from "react-router-dom";
 
 
 function Navbar() {
     return (
         <>
             <AppBar position="static">
-                <Toolbar  className="navBarra" variant="dense">
-                    <Box display="flex" justifyContent="space-between" style={{ width:"100%" }}>
-                        <Typography variant="h5" color="inherit"  style={{ cursor: "pointer" }} >
+                <Toolbar className="navBarra" variant="dense">
+                    <Box display="flex" justifyContent="space-between" style={{ width: "100%" }}>
+                        <Typography variant="h5" color="inherit" style={{ cursor: "pointer" }} >
                             Blog Pessoal
                         </Typography>
-                    
 
-                    <Box display="flex">
-                    <Box display="flex" justifyContent="start" gap={1} alignItems="center" mx={1} style={{ cursor: "pointer" }}>
-                        <HomeRoundedIcon ></HomeRoundedIcon>
-                            <Typography variant="h6" color="inherit">
-                                Home |
-                            </Typography>
-                        </Box>
-                        <Box display="flex" justifyContent="start" gap={1} alignItems="center" mx={1} style={{ cursor: "pointer" }}>
+
+                        <Box display="flex">
+                            <Box display="flex" justifyContent="start" gap={1} alignItems="center" mx={1} className="cursor">
+                                <HomeRoundedIcon ></HomeRoundedIcon>
+                                <Typography variant="h6" color="inherit">
+                                    Home |
+                                </Typography>
+                            </Box>
+                            <Box display="flex" justifyContent="start" gap={1} alignItems="center" mx={1} className="cursor">
                                 <WebRoundedIcon></WebRoundedIcon>
-                            <Typography variant="h6" color="inherit">
-                                Postagens |
-                            </Typography>
-                        </Box>
-                        <Box mx={1} style={{ cursor: "pointer" }} display="flex" justifyContent="start" gap={1} alignItems="center">
-                            <ListAltRoundedIcon></ListAltRoundedIcon>
-                            <Typography variant="h6" color="inherit">
-                                Temas |
-                            </Typography>
-                        </Box>
-                        <Box mx={1} style={{ cursor: "pointer" }} display="flex" justifyContent="start" gap={1} alignItems="center">
+                                <Typography variant="h6" color="inherit">
+                                    Postagens |
+                                </Typography>
+                            </Box>
+                            <Box mx={1} className="cursor" display="flex" justifyContent="start" gap={1} alignItems="center">
+                                <ListAltRoundedIcon></ListAltRoundedIcon>
+                                <Typography variant="h6" color="inherit">
+                                    Temas |
+                                </Typography>
+                            </Box>
+                            <Box mx={1} className="cursor" display="flex" justifyContent="start" gap={1} alignItems="center">
                                 <PostAddRoundedIcon></PostAddRoundedIcon>
-                            <Typography variant="h6" color="inherit">
-                                Cadastrar tema |
-                            </Typography>
+                                <Typography variant="h6" color="inherit">
+                                    Cadastrar tema |
+                                </Typography>
+                            </Box>
+                            <Link to="/login" className="text-decorator-none">
+                                <Box mx={1} className="cursor" display="flex" justifyContent="start" gap={1} alignItems="center">
+                                    <ExitToAppRoundedIcon></ExitToAppRoundedIcon>
+                                    <Typography variant="h6" color="inherit">
+                                        Logout
+                                    </Typography>
+                                </Box>
+                            </Link>
                         </Box>
-                        <Box mx={1} style={{ cursor: "pointer" }} display="flex" justifyContent="start" gap={1} alignItems="center">
-                                <ExitToAppRoundedIcon></ExitToAppRoundedIcon>
-                            <Typography variant="h6" color="inherit">
-                                Logout
-                            </Typography>
-                        </Box>
-                    </Box>
                     </Box>
                 </Toolbar>
             </AppBar>

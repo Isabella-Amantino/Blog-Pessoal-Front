@@ -1,15 +1,17 @@
-.titulo{
-    color: purple;
-    text-align: center;
-}
-
-.img{
-    width: 500px;
-    height: 500px;
-    display: block;
-    margin: 0 auto
-}
-
 .homeBack{
     background: linear-gradient(90deg, #eb722c  8%, #c107b1e3  89%);
+}
+
+.titulo{
+    color: white !important;
+    font-weight: bold !important;
+}
+
+.botao{
+    border-color: white !important;
+    color: white !important;
+}
+
+.postagens{
+    background-color: white;
 }

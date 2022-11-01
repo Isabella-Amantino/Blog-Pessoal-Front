@@ -3,4 +3,12 @@
     justify-content: space-between;
     background: linear-gradient(90deg, #eb722c  10%, #c107b1e3  88%);
 }
+.cursor{
+    cursor:pointer;
+    color: white;
+}
+.text-decorator-none{
+    text-decoration: none;
+}
+
 
