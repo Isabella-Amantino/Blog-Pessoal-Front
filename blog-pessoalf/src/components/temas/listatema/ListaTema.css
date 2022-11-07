@@ -1,0 +1,15 @@
+.text-decorator-none{
+    text-decoration: none;
+}
+
+.updateList{
+    color:white !important;
+    border-color:white !important;
+    background-color:#E73475 !important;
+}
+
+.cancelList{
+    color:white !important;
+    border-color:white !important;
+    background-color:#eb722c !important;
+}

@@ -1,0 +1,15 @@
+.text-decorator-none{
+    text-decoration: none;
+}
+
+.updateButton{
+    color:white !important;
+    border-color:white !important;
+    background-color:#E73475 !important;
+}
+
+.cancelButton{
+    color:white !important;
+    border-color:white !important;
+    background-color:#eb722c !important;
+}
