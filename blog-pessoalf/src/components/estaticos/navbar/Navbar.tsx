@@ -8,9 +8,19 @@ import ListAltRoundedIcon from '@material-ui/icons/ListAltRounded';
 import WebRoundedIcon from '@material-ui/icons/WebRounded';
 import "./Navbar.css"
 import { Link } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
+import useLocalStorage from "react-use-localstorage";
 
 
 function Navbar() {
+    const [token, setToken] = useLocalStorage("token");
+    let history = useNavigate()
+
+    function goLogout(){
+        setToken("")
+        alert("Usuário deslogado")
+        history("/login")
+    }
     return (
         <>
             <AppBar position="static">
@@ -22,38 +32,46 @@ function Navbar() {
 
 
                         <Box display="flex">
+                        <Link to= "/home" className="text-decorator-none">
                             <Box display="flex" justifyContent="start" gap={1} alignItems="center" mx={1} className="cursor">
                                 <HomeRoundedIcon ></HomeRoundedIcon>
                                 <Typography variant="h6" color="inherit">
                                     Home |
                                 </Typography>
                             </Box>
+                        </Link>
+                        <Link to="/posts" className="text-decorator-none">
                             <Box display="flex" justifyContent="start" gap={1} alignItems="center" mx={1} className="cursor">
                                 <WebRoundedIcon></WebRoundedIcon>
                                 <Typography variant="h6" color="inherit">
                                     Postagens |
                                 </Typography>
                             </Box>
+                        </Link>
+                        <Link to="/temas" className="text-decorator-none">
                             <Box mx={1} className="cursor" display="flex" justifyContent="start" gap={1} alignItems="center">
                                 <ListAltRoundedIcon></ListAltRoundedIcon>
                                 <Typography variant="h6" color="inherit">
                                     Temas |
                                 </Typography>
                             </Box>
+                        </Link>
+                        <Link to="/formularioTema" className="text-decorator-none">
                             <Box mx={1} className="cursor" display="flex" justifyContent="start" gap={1} alignItems="center">
                                 <PostAddRoundedIcon></PostAddRoundedIcon>
                                 <Typography variant="h6" color="inherit">
                                     Cadastrar tema |
                                 </Typography>
                             </Box>
-                            <Link to="/login" className="text-decorator-none">
-                                <Box mx={1} className="cursor" display="flex" justifyContent="start" gap={1} alignItems="center">
+                        </Link>
+
+                                <Box mx={1} className="cursor" display="flex" justifyContent="start" gap={1} alignItems="center" onClick={goLogout}>
                                     <ExitToAppRoundedIcon></ExitToAppRoundedIcon>
                                     <Typography variant="h6" color="inherit">
                                         Logout
                                     </Typography>
                                 </Box>
-                            </Link>
+
                         </Box>
                     </Box>
                 </Toolbar>
