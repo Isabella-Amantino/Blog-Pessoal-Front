@@ -1,0 +1,12 @@
+.yesDelete{
+    color: white !important;
+    border-color:white !important;
+    background-color: #E73475 !important;
+}
+
+.noDelete{
+    color: white !important;
+    border-color:white !important;
+    background-color: #eb722c !important;
+    margin-right: 20px !important;
+}

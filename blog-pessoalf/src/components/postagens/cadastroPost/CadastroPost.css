@@ -1,3 +1,9 @@
 .topo{
     margin-top: 20px;
 }
+
+.postColor{
+    color:white !important;
+    border-color:white !important;
+    background-color:#E73475 !important;
+}

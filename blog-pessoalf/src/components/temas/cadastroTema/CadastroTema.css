@@ -1,3 +1,9 @@
 .topo{
     margin-top: 20px;
 }
+
+.temaColor{
+    color:white !important;
+    border-color:white !important;
+    background-color:#E73475 !important;
+}

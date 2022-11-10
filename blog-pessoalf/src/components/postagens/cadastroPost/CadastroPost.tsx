@@ -49,7 +49,7 @@ function CadastroPost() {
     }, [id])
 
     async function getTemas() {
-        await busca("/tema", setTemas, {
+        await busca("/temas", setTemas, {
             headers: {
                 'Authorization': token
             }
@@ -111,12 +111,12 @@ function CadastroPost() {
                     <InputLabel id="demo-simple-select-helper-label">Tema </InputLabel>
                     <Select
                         labelId="demo-simple-select-helper-label"
-                        id="demo-simple-select-helper">
-                        onChange={(event: { target: { value: any; }; }) => buscaId(`/tema/${event.target.value}`, setTema, {
+                        id="demo-simple-select-helper"
+                        onChange={(event) => buscaId(`/temas/${event.target.value}`, setTema, {
                             headers: {
                                 'Authorization': token
                             }
-                        })}
+                        })}>
                         {
                             temas.map(tema => (
                                 <MenuItem value={tema.id}>{tema.descricao}</MenuItem>
@@ -124,7 +124,7 @@ function CadastroPost() {
                         }
                     </Select>
                     <FormHelperText>Escolha um tema para a postagem</FormHelperText>
-                    <Button type="submit" variant="contained" color="primary">
+                    <Button type="submit" className="postColor">
                         Finalizar
                     </Button>
                 </FormControl>
