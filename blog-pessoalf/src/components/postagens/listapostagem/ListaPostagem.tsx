@@ -14,12 +14,12 @@ function ListaPostagem() {
   let history = useNavigate();
   const token = useSelector<TokenState, TokenState["tokens"]>(
     (state) => state.tokens
-);
+  );
 
   useEffect(() => {
     if (token == "") {
-      toast.error("Você precisa estar logado",{
-        position:"top-right",
+      toast.error("Você precisa estar logado", {
+        position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -27,7 +27,7 @@ function ListaPostagem() {
         draggable: false,
         theme: "colored",
         progress: undefined,
-    })
+      })
       history("/login")
 
     }
@@ -50,48 +50,52 @@ function ListaPostagem() {
 
   return (
     <>
-     {
+      {
         posts.map(post => (
-      <Box m={2} >
-        <Card variant="outlined">
-          <CardContent>
-            <Typography color="textSecondary" gutterBottom>
-              Postagens
-            </Typography>
-            <Typography variant="h5" component="h2">
-              {post.titulo}
-            </Typography>
-            <Typography variant="body2" component="p">
-              {post.texto}
-            </Typography>
-            <Typography variant="body2" component="p">
-               {new Date(Date.parse(post.data)).toLocaleString()}
-            </Typography>
-            <Typography variant="body2" component="p">
-              {post.tema?.descricao}
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Box display="flex" justifyContent="center" mb={1.5}>
+          <Box m={2} >
+            <Card variant="outlined">
+              <Typography variant="body2" component="p">
+                Postado por: {post.usuario?.nome}
+              </Typography>
 
-              <Link to={`/formularioPostagem/${post.id}`}  className="text-decorator-none" >
-                <Box mx={1}>
-                  <Button  variant="contained" className="updateButton" size='small'  >
-                    atualizar
-                  </Button>
+              <CardContent>
+                <Typography color="textSecondary" gutterBottom>
+                  Postagens
+                </Typography>
+                <Typography variant="h5" component="h2">
+                  {post.titulo}
+                </Typography>
+                <Typography variant="body2" component="p">
+                  {post.texto}
+                </Typography>
+                <Typography variant="body2" component="p">
+                  {new Date(Date.parse(post.data)).toLocaleString()}
+                </Typography>
+                <Typography variant="body2" component="p">
+                  {post.tema?.descricao}
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Box display="flex" justifyContent="center" mb={1.5}>
+
+                  <Link to={`/formularioPostagem/${post.id}`} className="text-decorator-none" >
+                    <Box mx={1}>
+                      <Button variant="contained" className="updateButton" size='small'  >
+                        atualizar
+                      </Button>
+                    </Box>
+                  </Link>
+                  <Link to={`/deletarPostagem/${post.id}`} className="text-decorator-none">
+                    <Box mx={1}>
+                      <Button variant="contained" size='small' className="cancelButton">
+                        deletar
+                      </Button>
+                    </Box>
+                  </Link>
                 </Box>
-              </Link>
-              <Link to={`/deletarPostagem/${post.id}`} className="text-decorator-none">
-                <Box mx={1}>
-                  <Button variant="contained" size='small' className="cancelButton">
-                    deletar
-                  </Button>
-                </Box>
-              </Link>
-            </Box>
-          </CardActions>
-        </Card>
-      </Box>
+              </CardActions>
+            </Card>
+          </Box>
         ))
       }
     </>)
