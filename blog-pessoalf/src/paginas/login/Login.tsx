@@ -2,10 +2,12 @@ import { Grid,TextField,Typography, Button } from "@material-ui/core";
 import { Box } from "@mui/material";
 import React,{useState, useEffect, ChangeEvent} from "react";
 import { Link,  Navigate,  useNavigate } from "react-router-dom";
-import useLocalStorage from "react-use-localstorage";
 import { login } from "../../services/Service";
 import UserLogin from "../../models/UserLogin";
 import "./Login.css";
+import { useDispatch } from "react-redux";
+import { addToken } from "../../store/tokens/actions";
+import { toast } from "react-toastify";
 
 function Login(){
    
@@ -20,7 +22,9 @@ function Login(){
 
         let history = useNavigate();
 
-        const [token, setToken]= useLocalStorage('token');
+        const dispatch = useDispatch();
+
+        const [token, setToken]= useState('');
 
         function updatedModel(event: ChangeEvent<HTMLInputElement>){
 
@@ -36,14 +40,33 @@ function Login(){
             event.preventDefault();
             try {
               await login('/usuarios/logar',userLogin, setToken);
-              alert('Usuário logado com sucesso!')
+              toast.success("Usuário logado com sucesso!",{
+                position:"top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            })
             } catch (error) {
-              alert('Dados do usuário inconsistentes. Erro ao autenticar!')
+              toast.error("Dados do usuário inconsistentes. Erro ao logar!",{
+                position:"top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            })
             }
           }
           
           useEffect(() => {
             if (token !== '') {
+                dispatch(addToken(token));
               history('/home');
              }
            }, [token]);

@@ -7,3 +7,9 @@
     border-color:white !important;
     background-color:#E73475 !important;
 }
+
+.postColor:disabled {
+    color:rgb(148, 148, 148) !important;
+    border-color:white !important;
+    background-color:rgb(202, 197, 197) !important;
+  }
