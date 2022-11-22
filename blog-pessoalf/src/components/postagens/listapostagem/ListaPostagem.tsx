@@ -16,6 +16,10 @@ function ListaPostagem() {
     (state) => state.tokens
   );
 
+  const userId = useSelector<TokenState, TokenState['id']>(
+    (state) => state.id
+  )
+
   useEffect(() => {
     if (token == "") {
       toast.error("Você precisa estar logado", {
@@ -75,7 +79,7 @@ function ListaPostagem() {
                   {post.tema?.descricao}
                 </Typography>
               </CardContent>
-              <CardActions>
+              {post.usuario?.id === +userId &&<CardActions>
                 <Box display="flex" justifyContent="center" mb={1.5}>
 
                   <Link to={`/formularioPostagem/${post.id}`} className="text-decorator-none" >
@@ -93,7 +97,7 @@ function ListaPostagem() {
                     </Box>
                   </Link>
                 </Box>
-              </CardActions>
+              </CardActions>}
             </Card>
           </Box>
         ))
